@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>UserAdministration</name>
+    </assembly>
+    <members>
+        <member name="T:UserAdministration.Controllers.AdminController">
+            <summary>
+            Controlador para las opciones del administrador
+            </summary>
+        </member>
+        <member name="M:UserAdministration.Controllers.AdminController.#ctor(UserAdministration.Services.IAuthService)">
+            <summary>
+            Contructor con la inclusión del servicio de autenticación
+            </summary>
+            <param name="authService"></param>
+        </member>
+        <member name="M:UserAdministration.Controllers.AdminController.isAdmin">
+            <summary>
+            Endpoint para saber si el rol del usuario registrado es Admin.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UserAdministration.Controllers.AdminController.GetUsuarios">
+            <summary>
+            Endpoint para obtener los usuarios registrados
+            </summary>
+            <returns></returns>         
+        </member>
+        <member name="M:UserAdministration.Controllers.AdminController.GetUsuario(System.Int32)">
+            <summary>
+            Endopint para la consulta de un usuario por Id
+            </summary>
+            <param name="id">parámetro que viene por la url</param>
+            <returns></returns>
+        </member>
+        <member name="M:UserAdministration.Controllers.AdminController.AddUsuario(UserAdministration.Models.Usuario)">
+            <summary>
+            Endpoint para la creación de usuarios
+            </summary>
+            <param name="newUsuario">Parámetro con el objeto Usuario con la data del usuario</param>
+            <returns></returns>
+        </member>
+        <member name="M:UserAdministration.Controllers.AdminController.DelUsuario(System.Int32)">
+            <summary>
+            Endpoint para eliminación de un usuario por su id
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UserAdministration.Controllers.AdminController.UpdateUsuario(UserAdministration.Models.Usuario)">
+            <summary>
+            Edpoint para modificar la información del usuario. Nota: no actualiza el monto.
+            </summary>
+            <param name="newUsuario"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UserAdministration.Controllers.AdminController.Transferir(System.String,UserAdministration.Models.Cuenta)">
+            <summary>
+            Endpoint para transferir monto al balance entre usuarios
+            </summary>
+            <param name="nombre"></param>
+            <param name="cuentaDes"></param>
+            <returns></returns>
+        </member>
+        <member name="T:UserAdministration.Controllers.LoginController">
+            Controlador para el login por body y generador del token JWT
+        </member>
+        <member name="M:UserAdministration.Controllers.LoginController.#ctor(Microsoft.Extensions.Configuration.IConfiguration,UserAdministration.Services.IAuthService)">
+            <summary>
+            Construuctor con los llamados a las interfaces de servicio de autenticación y la configuración general
+            </summary>
+            <param name="configuration"></param>
+            <param name="authService"></param>
+        </member>
+        <member name="M:UserAdministration.Controllers.LoginController.getToken(UserAdministration.Models.Login)">
+            <summary>
+            Este endpoint se usa para vaildar al usuario y generar el tocken de JWT
+            </summary>
+        </member>
+        <member name="T:UserAdministration.Controllers.UserController">
+            <summary>
+            Controlador para los métodos que puede usasr un usuario no administrador.
+            </summary>
+        </member>
+        <member name="M:UserAdministration.Controllers.UserController.GetUsuario(System.Int32)">
+            <summary>
+            Endpoint para obtener usuario por su Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UserAdministration.Controllers.UserController.GetBalance(System.String)">
+            <summary>
+            Endpoint Get para obtener el balance del usuario. Recibe de parámetro el email del usuario
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UserAdministration.Controllers.UserController.Transferir(System.String,UserAdministration.Models.Cuenta)">
+            <summary>
+            Endpoint para realizar traslado de balance.
+            </summary>
+            <param name="email"> este parámetro entra por la url</param>
+            <param name="cuentaDes"> este parámetro se determina por el body como objeto de la entidad Cuenta</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
